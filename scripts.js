@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('.item');
+    const colors = ['green', 'blue', 'red', 'yellow', 'orange'];
 
     items.forEach(item => {
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        item.querySelector('.cover').style.borderColor = randomColor;
+
         item.addEventListener('click', function() {
-            if (item.classList.contains('expanded')) {
-                item.classList.remove('expanded');
-            } else {
-                document.querySelectorAll('.item').forEach(i => i.classList.remove('expanded'));
-                item.classList.add('expanded');
-            }
+            item.classList.toggle('expanded');
         });
     });
 });
